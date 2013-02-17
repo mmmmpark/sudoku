@@ -83,18 +83,17 @@
 -(void) setValueAtRow: (int) row column: (int) column value: (int) value color: (UIColor*) color {
     //initializing everything needed for the buttons
     UIButton* button = [[buttonArray objectAtIndex:row ] objectAtIndex:column];
-    [button setTitle:[[NSString alloc] initWithFormat:@"%d",value] forState:UIControlStateNormal];
-    [button setTitleColor:color forState:UIControlStateNormal];
+    if (value==0)
+    {
+        [button setTitle:[[NSString alloc] initWithFormat:@""] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [button setTitle:[[NSString alloc] initWithFormat:@"%d",value] forState:UIControlStateNormal];
+        [button setTitleColor:color forState:UIControlStateNormal];
+    }
     
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 @end

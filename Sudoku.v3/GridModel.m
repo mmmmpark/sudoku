@@ -34,7 +34,7 @@
 
 -(void) updateGrid: (int) row: (int) column: (int) num
 {
-    NSAssert(num <= 9 && num >= 0, @"updateGrid received num that is not 1-9");
+    NSAssert(num <= 10 && num >= 0, @"updateGrid received num that is not 1-9");
     NSAssert(row < 9 && row >= 0, @"updateGrid received row outside of range");
     NSAssert(column < 9 && column >= 0, @"updateGrid received column outside of range");
     board[row][column]=num;

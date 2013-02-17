@@ -17,20 +17,28 @@
     if (self) {
         
         self.backgroundColor=[UIColor blackColor];
-        int size = (self.bounds.size.width-(20+5*8)) *(1/9.0);
+        int size = (self.bounds.size.width-(20+5*9)) *(1/10.0);
         int originX=10;
         int originY=(self.bounds.size.height-size)/2;
         numberPad = [[NSMutableArray alloc] init];
-        for(int i = 0; i<9; i++){
+        for(int i = 0; i<10; i++){
             
             [numberPad addObject:[[UIButton alloc] initWithFrame:CGRectMake(originX, originY, size, size)]];
             
             [((UIButton*)[numberPad objectAtIndex:i]) addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [((UIButton*)[numberPad objectAtIndex:i]) setTitle:[NSString stringWithFormat:@"%d", (i+1)] forState:UIControlStateNormal];
+            if (i < 9)
+            {
+                [((UIButton*)[numberPad objectAtIndex:i]) setTitle:[NSString stringWithFormat:@"%d", (i+1)] forState:UIControlStateNormal];
+            }
+            else
+            {
+                [((UIButton*)[numberPad objectAtIndex:i]) setTitle:[NSString stringWithFormat:@"Erase"] forState:UIControlStateNormal];
+            }
+            
             [((UIButton*)[numberPad objectAtIndex:i]) setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
             [((UIButton*)[numberPad objectAtIndex:i]) setTag:i+1];
             
-            //tag of 0 means initial, 1 means not
+            //set background color of numpad buttons
             if (i==0){
                 
                 ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor whiteColor];
@@ -51,6 +59,7 @@
     return self;
 }
 
+// buttonPressed method to tell the ViewController what the NumPad's currentValue is
 -(void) buttonPressed: (id) sender{
     [sender setBackgroundColor:[UIColor whiteColor]];
     UIButton* theButton = [numberPad objectAtIndex: currentValue-1];
@@ -59,22 +68,5 @@
     currentValue= ((UIButton*) sender).tag;
 }
 
--(NSString*) getValue{
-    for (int i=0;i<9;i++){
-        if (((UIButton*)[numberPad objectAtIndex:i]).tag==1){
-            return [NSString stringWithFormat:@"%d", (i+1)];
-        }
-    }
-    return @"Welp.";
-}
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 @end

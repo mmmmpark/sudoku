@@ -12,6 +12,6 @@
     NSMutableArray* numberPad;
 }
 @property int currentValue;
--(void) buttonClicked: (id) sender;
+-(void) buttonPressed: (id) sender;
 
 @end

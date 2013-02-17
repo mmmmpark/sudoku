@@ -70,8 +70,15 @@
     int row = theGrid.currentRow;
     int column = theGrid.currentColumn;
     int value = theNumPad.currentValue;
+    
     if ([theGridModel isMutableAtRow:row column:column]){
-        if([theGridModel isConsistent:row :column :value]){
+        if (value == 10)
+        {
+            [theGrid setValueAtRow:row column:column value:0 color:[UIColor blueColor]];
+            [theGridModel updateGrid:row :column :0];
+        }
+        else if ([theGridModel isConsistent:row :column :value])
+        {
             [theGrid setValueAtRow:row column:column value:value color:[UIColor blueColor]];
             [theGridModel updateGrid:row :column :value];
         }
