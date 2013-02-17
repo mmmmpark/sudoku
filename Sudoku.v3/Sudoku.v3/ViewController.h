@@ -17,9 +17,18 @@
     NumberPadView* theNumPad;
     GridModel* theGridModel;
     GridGenerator* theGridGenerator;
+    NSInteger currentTime;
+    //IBOutlet UILabel *displayTimeLabel;
+    NSString *displayTime;
 }
 
+@property NSInteger currentTime;
+//@property(nonatomic, retain) UILabel *displayTimeLabel;
+@property NSTimer *secTimer;
 -(void) buttonPressed;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+-(void) updateTimer:(NSTimer *) theTimer;
+-(void) viewDidAppear:(BOOL)animated;
+
 
 @end

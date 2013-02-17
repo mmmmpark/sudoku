@@ -11,6 +11,9 @@
 
 @implementation ViewController
 
+@synthesize currentTime;
+@synthesize secTimer;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -83,7 +86,11 @@
             [theGridModel updateGrid:row :column :value];
             if ([theGridModel isFull])
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You won!" message:@"Timer things" delegate:self cancelButtonTitle:@"Play again?" otherButtonTitles:@"Exit", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You won!"
+                    message:[NSString stringWithFormat:@"Time: %@",displayTime]
+                    delegate:self
+                    cancelButtonTitle:@"Play again?"
+                    otherButtonTitles:@"Exit", nil];
                 [alert show];                
             }
         }
@@ -95,15 +102,40 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    [secTimer invalidate];
     if (buttonIndex == 0){
         ////////////// CALL NEW GAME FUNCTION HERE //////////////////////////////////
-        NSLog(@"Play again");
     }
-    else if (buttonIndex == 1){
-        NSLog(@"Quit");
-        //[[NSThread mainThread] exit];
+    else if (buttonIndex == 1){        
+        // exit the game
         exit(0);
     }
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    currentTime = -1;
+    self.secTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];    
+    [secTimer fire];
+}
+
+-(void) updateTimer:(NSTimer *) theTimer
+{
+    NSInteger mins,secs;
+    currentTime++;
+    mins=currentTime/60;
+    secs=currentTime%60;
+    displayTime = [NSString stringWithFormat:@"%02d:%02d",mins,secs];
+    
+    int originX = self.view.bounds.size.width *.10;
+    int originY = self.view.bounds.size.height *.05;
+    int size1 = originY*0.75;
+    int size2 = size1*2;
+    
+    UIButton *theButton = [[UIButton alloc] initWithFrame: CGRectMake(originX, originY, size2, size1)];
+    [theButton setBackgroundColor:[UIColor blackColor]];
+    [theButton setTitle:[[NSString alloc] initWithFormat:@"%@", displayTime] forState:UIControlStateNormal];
+    [self.view addSubview:theButton];
 }
 
 - (void)viewDidUnload
