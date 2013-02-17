@@ -81,14 +81,30 @@
         {
             [theGrid setValueAtRow:row column:column value:value color:[UIColor blueColor]];
             [theGridModel updateGrid:row :column :value];
+            if ([theGridModel isFull])
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You won!" message:@"Timer things" delegate:self cancelButtonTitle:@"Play again?" otherButtonTitles:@"Exit", nil];
+                [alert show];                
+            }
         }
     }
-    
     
     NSLog(@"got button");
     
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        ////////////// CALL NEW GAME FUNCTION HERE //////////////////////////////////
+        NSLog(@"Play again");
+    }
+    else if (buttonIndex == 1){
+        NSLog(@"Quit");
+        //[[NSThread mainThread] exit];
+        exit(0);
+    }
+}
 
 - (void)viewDidUnload
 {

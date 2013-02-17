@@ -97,6 +97,17 @@
     return false;
 }
 
+-(bool) isFull
+{
+    for (int row = 0; row < 9; row++) {
+        for (int col = 0; col < 9; col++) {
+            if (board[row][col] == 0)
+                return false;
+        }
+    }
+    return true;
+}
+
 
 /*
  // Only override drawRect: if you perform custom drawing.

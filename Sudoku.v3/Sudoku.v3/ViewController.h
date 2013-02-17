@@ -12,7 +12,7 @@
 #import "GridModel.h"
 #import "GridGenerator.h"
 
-@interface ViewController : UIViewController{
+@interface ViewController : UIViewController<UIAlertViewDelegate>{
     GridView* theGrid;
     NumberPadView* theNumPad;
     GridModel* theGridModel;
@@ -20,5 +20,6 @@
 }
 
 -(void) buttonPressed;
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end

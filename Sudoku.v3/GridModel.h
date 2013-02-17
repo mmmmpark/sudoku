@@ -21,7 +21,7 @@
 -(int) blockNumForRow: (int) row column: (int) column;
 -(bool) hasValue: (int) value inBlock:(int) block;
 -(void) initializeGrid: (int) row: (int) column: (int) value;
-
+-(bool) isFull;
 
 
 
