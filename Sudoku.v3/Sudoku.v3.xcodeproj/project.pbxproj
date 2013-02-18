@@ -28,7 +28,7 @@
 		4EE5D9B716C8A6A400AEDCAA /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5D9B616C8A6A400AEDCAA /* GridView.m */; };
 		4EE5D9BA16C8A6BB00AEDCAA /* NumberPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5D9B916C8A6BB00AEDCAA /* NumberPadView.m */; };
 		4EE5D9BD16C8A6DC00AEDCAA /* GridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5D9BC16C8A6DC00AEDCAA /* GridGenerator.m */; };
-		4EE5D9C116C8B1DB00AEDCAA /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4EE5D9C016C8B1DB00AEDCAA /* grid2.txt */; };
+		D88288B816CF098300B2ACA4 /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = D88288B716CF098300B2ACA4 /* grid2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 		4EE5D9B916C8A6BB00AEDCAA /* NumberPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberPadView.m; sourceTree = "<group>"; };
 		4EE5D9BB16C8A6DC00AEDCAA /* GridGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridGenerator.h; sourceTree = "<group>"; };
 		4EE5D9BC16C8A6DC00AEDCAA /* GridGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridGenerator.m; sourceTree = "<group>"; };
-		4EE5D9C016C8B1DB00AEDCAA /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = grid2.txt; path = ../../grid2.txt; sourceTree = "<group>"; };
+		D88288B716CF098300B2ACA4 /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,7 @@
 		4EE5D97B16C8A67600AEDCAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4EE5D9C016C8B1DB00AEDCAA /* grid2.txt */,
+				D88288B716CF098300B2ACA4 /* grid2.txt */,
 				4EE5D97C16C8A67600AEDCAA /* Sudoku.v3-Info.plist */,
 				4EE5D97D16C8A67600AEDCAA /* InfoPlist.strings */,
 				4EE5D98016C8A67600AEDCAA /* main.m */,
@@ -263,7 +263,7 @@
 				4EE5D98B16C8A67600AEDCAA /* Default-568h@2x.png in Resources */,
 				4EE5D99116C8A67600AEDCAA /* ViewController_iPhone.xib in Resources */,
 				4EE5D99416C8A67600AEDCAA /* ViewController_iPad.xib in Resources */,
-				4EE5D9C116C8B1DB00AEDCAA /* grid2.txt in Resources */,
+				D88288B816CF098300B2ACA4 /* grid2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +374,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -389,6 +390,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "B202BA66-DAEA-450F-8DE6-7425317AA63D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B202BA66-DAEA-450F-8DE6-7425317AA63D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -406,7 +409,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -414,6 +418,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "B202BA66-DAEA-450F-8DE6-7425317AA63D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B202BA66-DAEA-450F-8DE6-7425317AA63D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -495,6 +501,7 @@
 				4EE5D9AE16C8A67700AEDCAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EE5D9AF16C8A67700AEDCAA /* Build configuration list for PBXNativeTarget "Sudoku.v3Tests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +510,7 @@
 				4EE5D9B116C8A67700AEDCAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
