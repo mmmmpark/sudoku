@@ -64,6 +64,7 @@
         }
         
     }
+    
     return self;
 }
 
@@ -71,6 +72,11 @@
     UIButton* theButton = sender;
     currentRow=theButton.tag/10;
     currentColumn=theButton.tag%10;
+    
+    [theButton setBackgroundColor:[UIColor yellowColor]];
+    [previousButton setBackgroundColor: [UIColor whiteColor]];
+    previousButton = theButton;
+    
     [target performSelector: selector];
 }
 

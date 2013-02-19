@@ -10,6 +10,7 @@
 
 @interface GridView : UIView{
     NSMutableArray* buttonArray;
+    UIButton *previousButton;
     id target;
     SEL selector;
 }

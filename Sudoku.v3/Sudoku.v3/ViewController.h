@@ -28,6 +28,7 @@
 -(void) buttonPressed;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(void) updateTimer:(NSTimer *) theTimer;
+-(void) loadNewGame;
 -(void) viewDidAppear:(BOOL)animated;
 
 
