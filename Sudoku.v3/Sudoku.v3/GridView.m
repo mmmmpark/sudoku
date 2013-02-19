@@ -20,8 +20,8 @@
         self.backgroundColor=[UIColor blackColor];
         
         //making the size of the buttons and lines
-        int smallLines = 5;
-        int bigLines = 10;
+        int smallLines = 7;
+        int bigLines = 12;
         int originX=bigLines;
         int originY=bigLines;
         int size = (self.bounds.size.width-(4*bigLines+6*smallLines)) *(1/9.0);
@@ -75,8 +75,10 @@
     currentColumn=theButton.tag%10;
     
     [theButton setBackgroundColor:[UIColor yellowColor]];
-    [previousButton setBackgroundColor: [UIColor whiteColor]];
-    previousButton = theButton;
+    if (sender != previousButton) {
+        [previousButton setBackgroundColor: [UIColor whiteColor]];
+        previousButton = theButton;
+    }
     
     [target performSelector: selector];
 }

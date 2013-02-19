@@ -41,16 +41,16 @@
             //set background color of numpad buttons
             if (i==0){
                 
-                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor whiteColor];
+                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor yellowColor];
             }
             else{
                 
-                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor lightGrayColor];
+                ((UIButton*)[numberPad objectAtIndex:i]).backgroundColor=[UIColor whiteColor];
             }
             [self addSubview:(UIButton*)[numberPad objectAtIndex:i]];
             
             
-            originX+=5+size;
+            originX+=6+size;
             currentValue = 1;
         }
         
@@ -61,9 +61,12 @@
 
 // buttonPressed method to tell the ViewController what the NumPad's currentValue is
 -(void) buttonPressed: (id) sender{
-    [sender setBackgroundColor:[UIColor whiteColor]];
-    UIButton* theButton = [numberPad objectAtIndex: currentValue-1];
-    [theButton setBackgroundColor: [UIColor lightGrayColor]];
+    [sender setBackgroundColor:[UIColor yellowColor]];
+    
+    if (((UIButton*) sender).tag != currentValue) {
+        UIButton* theButton = [numberPad objectAtIndex: currentValue-1];
+        [theButton setBackgroundColor: [UIColor whiteColor]];
+    }
     
     currentValue= ((UIButton*) sender).tag;
 }
