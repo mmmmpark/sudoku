@@ -3,7 +3,7 @@
 //  Sudoku.v3
 //
 //  Created by Abigail Gregory on 2/10/13.
-//  Copyright (c) 2013 Abigail Gregory and Izzy Funke. All rights reserved.
+//  Copyright (c) 2013 Abigail Gregory, Izzy Funke, Ari Schlesinger, and Miranda Parker. All rights reserved.
 //
 #import "GridModel.h"
 #include "GridView.h"
