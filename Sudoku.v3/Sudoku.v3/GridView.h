@@ -19,7 +19,7 @@
 @property int currentColumn;
 
 -(void) buttonPressed: (id) sender;
--(void) setValueAtRow: (int) row column: (int) column value: (int) value color: (UIColor*) color;
+-(void) setValueAtRow: (int) row atColumn: (int) column withValue: (int) value withColor: (UIColor*) color;
 -(void) setTarget: (id) target action: (SEL) action;
 @end
 

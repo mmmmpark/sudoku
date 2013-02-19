@@ -68,7 +68,8 @@
     return self;
 }
 
--(void) buttonPressed: (id) sender{
+-(void) buttonPressed: (id) sender
+{
     UIButton* theButton = sender;
     currentRow=theButton.tag/10;
     currentColumn=theButton.tag%10;
@@ -80,13 +81,9 @@
     [target performSelector: selector];
 }
 
--(void) setTarget:(id) sender action:(SEL)action
-{
-    target=sender;
-    selector = action;
-}
 
--(void) setValueAtRow: (int) row column: (int) column value: (int) value color: (UIColor*) color {
+-(void) setValueAtRow: (int) row atColumn: (int) column withValue: (int) value withColor: (UIColor*) color
+{
     //initializing everything needed for the buttons
     UIButton* button = [[buttonArray objectAtIndex:row ] objectAtIndex:column];
     if (value==0)
@@ -99,6 +96,12 @@
         [button setTitleColor:color forState:UIControlStateNormal];
     }
     
+}
+
+-(void) setTarget:(id) sender action:(SEL)action
+{
+    target=sender;
+    selector = action;
 }
 
 

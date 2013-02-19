@@ -14,6 +14,6 @@
 }
 
 -(void) readGridFromFile;
--(int) getValueAtRow: (int) row andColumn: (int) column;
+-(int) getValueAtRow: (int) row atColumn: (int) column;
 
 @end

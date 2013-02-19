@@ -34,7 +34,7 @@
 
 }
 
--(int) getValueAtRow: (int) row andColumn: (int) column
+-(int) getValueAtRow: (int) row atColumn: (int) column
 {
     NSAssert(row < 9 && row >= 0, @"getValueAtRow received row that is out of bounds");
     NSAssert(column < 9 && column >= 0, @"getValueAtRow received column that is out of bounds");

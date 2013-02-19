@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NumberPadView : UIView{
+@interface NumberPadView : UIView
+{
     NSMutableArray* numberPad;
 }
+
 @property int currentValue;
+
 -(void) buttonPressed: (id) sender;
+
 
 @end

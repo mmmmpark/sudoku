@@ -16,45 +16,39 @@
     return self;
 }
 
--(void)initializeGrid: (int) row: (int) column: (int) value
+-(bool) isConsistentInRow:(int)row inColumn:(int)column withValue:(int)num
 {
-    NSAssert(value <= 9 && value >= 0, @"initializeGrid received num that is not 1-9");
-    NSAssert(row < 9 && row >= 0, @"initializeGrid received row outside of range");
-    NSAssert(column < 9 && column >= 0, @"initializeGrid received column outside of range");
-
-    initBoard[row][column] = value;
+    NSAssert(num <= 9 && num > 0, @"isConsistentInRow received num that is not 1-9");
+    NSAssert(row < 9 && row >= 0, @"isConsistentInRow received row outside of range");
+    NSAssert(column < 9 && column >= 0, @"isConsistentInRow received column outside of range");
+    if (num == board[row][column])
+        return true;
+    
+    return (![self hasValue: num inRow: row] && ![self hasValue: num inColumn: column] && ![self hasValue: num inBlock:[self blockNumForRow: row column: column]]);
 }
 
--(int)getValue: (int) row: (int) column
+-(void) updateGridAtRow:(int)row atColumn:(int)column withValue:(int)num
+{
+    NSAssert(num <= 10 && num >= 0, @"updateGridAtRow received num that is not 1-9");
+    NSAssert(row < 9 && row >= 0, @"updateGridAtRow received row outside of range");
+    NSAssert(column < 9 && column >= 0, @"updateGridAtRow received column outside of range");
+    board[row][column]=num;
+}
+
+
+-(int)getValueAtRow:(int)row atColumn:(int)column
 {
     NSAssert(row < 9 && row >= 0, @"getValue received row outside of range");
     NSAssert(column < 9 && column >= 0, @"getValue received column outside of range");
     return board[row][column];
 }
 
--(void) updateGrid: (int) row: (int) column: (int) num
-{
-    NSAssert(num <= 10 && num >= 0, @"updateGrid received num that is not 1-9");
-    NSAssert(row < 9 && row >= 0, @"updateGrid received row outside of range");
-    NSAssert(column < 9 && column >= 0, @"updateGrid received column outside of range");
-    board[row][column]=num;
-}
 
--(bool) isMutableAtRow:(int)row column:(int)column
+-(bool) isMutableAtRow:(int)row atColumn:(int)column
 {
     return (initBoard[row][column]==0);
 }
 
--(bool) isConsistent: (int) row: (int) column: (int) num
-{
-    NSAssert(num <= 9 && num > 0, @"isConsistent received num that is not 1-9");
-    NSAssert(row < 9 && row >= 0, @"isConsistent received row outside of range");
-    NSAssert(column < 9 && column >= 0, @"isConsistent received column outside of range");
-    if (num == board[row][column])
-        return true;
-    
-    return (![self hasValue: num inRow: row] && ![self hasValue: num inColumn: column] && ![self hasValue: num inBlock:[self blockNumForRow: row column: column]]);
-}
 
 -(bool) hasValue: (int) value inRow: (int) row
 {
@@ -95,6 +89,15 @@
         }
     }
     return false;
+}
+
+-(void)initializeGridAtRow:(int)row AtColumn:(int)column withValue:(int)value
+{
+    NSAssert(value <= 9 && value >= 0, @"initializeGrid received num that is not 1-9");
+    NSAssert(row < 9 && row >= 0, @"initializeGrid received row outside of range");
+    NSAssert(column < 9 && column >= 0, @"initializeGrid received column outside of range");
+    
+    initBoard[row][column] = value;
 }
 
 -(bool) isFull

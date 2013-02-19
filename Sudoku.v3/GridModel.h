@@ -8,19 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GridModel : UIView{
+@interface GridModel : UIView
+{
     int board[9][9];
     int initBoard[9][9];
 }
--(bool) isConsistent: (int) row: (int) column: (int) num;
--(void) updateGrid: (int) row: (int) column: (int) num;
--(int) getValue: (int) row: (int) column;
--(bool) isMutableAtRow: (int) row column: (int) column;
+-(bool) isConsistentInRow: (int) row inColumn: (int) column withValue: (int) num;
+-(void) updateGridAtRow: (int) row atColumn: (int) column withValue: (int) num;
+-(int)  getValueAtRow: (int) row atColumn: (int) column;
+-(bool) isMutableAtRow: (int) row atColumn: (int) column;
 -(bool) hasValue: (int) value inRow: (int) row;
 -(bool) hasValue: (int) value inColumn: (int) column;
--(int) blockNumForRow: (int) row column: (int) column;
+-(int)  blockNumForRow: (int) row column: (int) column;
 -(bool) hasValue: (int) value inBlock:(int) block;
--(void) initializeGrid: (int) row: (int) column: (int) value;
+-(void) initializeGridAtRow: (int) row AtColumn: (int) column withValue: (int) value;
 -(bool) isFull;
 
 
