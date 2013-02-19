@@ -89,7 +89,6 @@
 {
     NSLog(@"New Game Pressed");
     [self loadNewGame];
-    currentTime = -1;
 }
 
 -(void) buttonPressed
@@ -158,6 +157,8 @@
 
 -(void) loadNewGame
 {
+    currentTime = -1;
+    
     [theGridGenerator readGridFromFile];
     
     //create the frame for grid
