@@ -126,7 +126,6 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [secTimer invalidate];
     if (buttonIndex == 0){
         [self loadNewGame];
     }
@@ -158,6 +157,7 @@
 -(void) loadNewGame
 {
     currentTime = -1;
+    [secTimer fire];
     
     [theGridGenerator readGridFromFile];
     
