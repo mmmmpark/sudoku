@@ -170,9 +170,9 @@
     for (int row = 0; row<9; row++){
         for (int column=0; column<9; column++)
         {
-            int value = [theGridGenerator getValueAtRow:row andColumn:column];
-            [theGridModel initializeGrid:row :column: value];
-            [theGridModel updateGrid:row :column :value];
+            int value = [theGridGenerator getValueAtRow:row atColumn:column];
+            [theGridModel initializeGridAtRow:row AtColumn:column withValue:value];
+            [theGridModel updateGridAtRow:row atColumn:column withValue:value];
         }
     }
     
@@ -182,9 +182,9 @@
     [theGrid setTarget: self action: @selector(buttonPressed)];
     for (int row = 0; row<9; row++){
         for (int column=0; column<9; column++){
-            int value = [theGridModel getValue: row :column];
+            int value = [theGridModel getValueAtRow:row atColumn:column];
             if (value>0)
-                [theGrid setValueAtRow: row column: column value: value color: [UIColor blackColor]];
+                [theGrid setValueAtRow: row atColumn: column withValue: value withColor: [UIColor blackColor]];
         }
     }
 }
