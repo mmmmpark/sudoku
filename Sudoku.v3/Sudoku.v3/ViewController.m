@@ -49,9 +49,9 @@
     for (int row = 0; row<9; row++){
         for (int column=0; column<9; column++)
         {
-            int value = [theGridGenerator getValueAtRow:row andColumn:column];
-            [theGridModel initializeGrid:row :column: value];
-            [theGridModel updateGrid:row :column :value];
+            int value = [theGridGenerator getValueAtRow:row atColumn:column];
+            [theGridModel initializeGridAtRow:row AtColumn:column withValue:value];
+            [theGridModel updateGridAtRow:row atColumn:column withValue:value];
         }
     }
     
@@ -61,9 +61,9 @@
     [theGrid setTarget: self action: @selector(buttonPressed)];
     for (int row = 0; row<9; row++){
         for (int column=0; column<9; column++){
-            int value = [theGridModel getValue: row :column];
+            int value = [theGridModel getValueAtRow:row atColumn:column];
             if (value>0)
-                [theGrid setValueAtRow: row column: column value: value color: [UIColor blackColor]];
+                [theGrid setValueAtRow: row atColumn: column withValue: value withColor: [UIColor blackColor]];
         }
     }
 }
@@ -74,16 +74,16 @@
     int column = theGrid.currentColumn;
     int value = theNumPad.currentValue;
     
-    if ([theGridModel isMutableAtRow:row column:column]){
+    if ([theGridModel isMutableAtRow:row atColumn:column]){
         if (value == 10)
         {
-            [theGrid setValueAtRow:row column:column value:0 color:[UIColor blueColor]];
-            [theGridModel updateGrid:row :column :0];
+            [theGrid setValueAtRow:row atColumn:column withValue:0 withColor:[UIColor blueColor]];
+            [theGridModel updateGridAtRow:row atColumn:column withValue:0];
         }
-        else if ([theGridModel isConsistent:row :column :value])
+        else if ([theGridModel isConsistentInRow: row inColumn: column withValue: value])
         {
-            [theGrid setValueAtRow:row column:column value:value color:[UIColor blueColor]];
-            [theGridModel updateGrid:row :column :value];
+            [theGrid setValueAtRow:row atColumn:column withValue:value withColor:[UIColor blueColor]];
+            [theGridModel updateGridAtRow:row atColumn:column withValue:value];
             if ([theGridModel isFull])
             {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You won!"
@@ -112,13 +112,6 @@
     }
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
-    currentTime = -1;
-    self.secTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];    
-    [secTimer fire];
-}
-
 -(void) updateTimer:(NSTimer *) theTimer
 {
     NSInteger mins,secs;
@@ -136,6 +129,13 @@
     [theButton setBackgroundColor:[UIColor blackColor]];
     [theButton setTitle:[[NSString alloc] initWithFormat:@"%@", displayTime] forState:UIControlStateNormal];
     [self.view addSubview:theButton];
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    currentTime = -1;
+    self.secTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+    [secTimer fire];
 }
 
 - (void)viewDidUnload
